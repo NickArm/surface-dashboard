@@ -6,18 +6,18 @@
   "homepage": "./",
   "private": true,
   "author": {
-    "name": "Surface Dashboard Team",
-    "email": "your.email@example.com",
-    "url": "https://github.com/yourusername/surface-dashboard"
+    "name": "Nick Armenis",
+    "email": "armenisnick@gmail.com",
+    "url": "https://armenisnick.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/surface-dashboard.git"
+    "url": "https://github.com/NickArm/surface-dashboard.git"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/surface-dashboard/issues"
+    "url": "https://github.com/NickArm/surface-dashboard/issues"
   },
-  "homepage": "https://github.com/yourusername/surface-dashboard#readme",
+  "homepage": "https://github.com/NickArm/surface-dashboard#readme",
   "keywords": [
     "dashboard",
     "electron",

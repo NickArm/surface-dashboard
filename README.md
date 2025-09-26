@@ -49,7 +49,7 @@ A modern, customizable desktop dashboard built with Electron and React. Monitor 
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/surface-dashboard.git
+   git clone https://github.com/NickArm/surface-dashboard.git
    cd surface-dashboard
    ```
 
@@ -292,10 +292,11 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Support
 
-- **Issues**: [GitHub Issues](https://github.com/yourusername/surface-dashboard/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/surface-dashboard/discussions)
-- **Email**: your.email@example.com
+- **Issues**: [GitHub Issues](https://github.com/NickArm/surface-dashboard/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/NickArm/surface-dashboard/discussions)
+- **Email**: armenisnick@gmail.com
+- **Website**: [armenisnick.com](https://armenisnick.com)
 
 ---
 
-**Made with ❤️ for Windows users who want a beautiful, functional dashboard**
+**Made with ❤️ by Nick Armenis for Windows users who want a beautiful, functional dashboard**

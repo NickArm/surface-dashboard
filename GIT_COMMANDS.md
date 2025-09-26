@@ -13,8 +13,8 @@ git add .
 # Initial commit
 git commit -m "feat: initial commit - Surface Dashboard v1.0.0"
 
-# Add remote origin (replace with your GitHub URL)
-git remote add origin https://github.com/yourusername/surface-dashboard.git
+# Add remote origin
+git remote add origin https://github.com/NickArm/surface-dashboard.git
 
 # Push to GitHub
 git push -u origin main
@@ -204,14 +204,14 @@ git log --author="yourname"
 ### User Configuration
 ```bash
 # Set global user name
-git config --global user.name "Your Name"
+git config --global user.name "Nick Armenis"
 
 # Set global user email
-git config --global user.email "your.email@example.com"
+git config --global user.email "armenisnick@gmail.com"
 
 # Set local user (for this repo only)
-git config user.name "Your Name"
-git config user.email "your.email@example.com"
+git config user.name "Nick Armenis"
+git config user.email "armenisnick@gmail.com"
 ```
 
 ### Repository Configuration

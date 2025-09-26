@@ -272,7 +272,8 @@ Any other context about the feature request
 
 - **GitHub Issues**: For bug reports and feature requests
 - **GitHub Discussions**: For questions and general discussion
-- **Email**: your.email@example.com
+- **Email**: armenisnick@gmail.com
+- **Website**: [armenisnick.com](https://armenisnick.com)
 
 ## 🎉 Recognition
 
