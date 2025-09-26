@@ -1,0 +1,219 @@
+.system-stats-widget {
+  grid-column: span 1;
+  grid-row: span 2;
+}
+
+.stats-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.stat-item {
+  border-radius: 8px;
+  padding: 16px;
+}
+
+/* Dark theme stat items */
+[data-theme="dark"] .stat-item {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Light theme stat items */
+[data-theme="light"] .stat-item {
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.stat-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.stat-icon {
+  width: 20px;
+  height: 20px;
+  color: #64b5f6;
+}
+
+.stat-label {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Dark theme labels */
+[data-theme="dark"] .stat-label {
+  color: white;
+}
+
+/* Light theme labels */
+[data-theme="light"] .stat-label {
+  color: #1a1a1a;
+}
+
+.stat-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.stat-value {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* Dark theme values */
+[data-theme="dark"] .stat-value {
+  color: white;
+}
+
+/* Light theme values */
+[data-theme="light"] .stat-value {
+  color: #1a1a1a;
+}
+
+.stat-percentage {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Dark theme percentages */
+[data-theme="dark"] .stat-percentage {
+  color: #64b5f6;
+}
+
+/* Light theme percentages */
+[data-theme="light"] .stat-percentage {
+  color: #2563eb;
+}
+
+.stat-bar {
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+/* Dark theme progress bar background */
+[data-theme="dark"] .stat-bar {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Light theme progress bar background */
+[data-theme="light"] .stat-bar {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.stat-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #64b5f6, #42a5f5);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.stat-subtitle {
+  font-size: 11px;
+  margin-top: 4px;
+}
+
+/* Dark theme subtitles */
+[data-theme="dark"] .stat-subtitle {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Light theme subtitles */
+[data-theme="light"] .stat-subtitle {
+  color: rgba(26, 26, 26, 0.6);
+}
+
+.stat-loading {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  font-style: italic;
+}
+
+.network-stat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.network-label {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.network-value {
+  font-size: 12px;
+  color: #64b5f6;
+  font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .system-stats-widget {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+  
+  .stats-grid {
+    gap: 12px;
+  }
+  
+  .stat-item {
+    padding: 12px;
+  }
+  
+  .stat-value {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .stats-grid {
+    gap: 8px;
+  }
+  
+  .stat-item {
+    padding: 10px;
+  }
+  
+  .stat-header {
+    margin-bottom: 8px;
+  }
+  
+  .stat-icon {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .stat-label {
+    font-size: 12px;
+  }
+  
+  .stat-value {
+    font-size: 13px;
+  }
+  
+  .stat-percentage {
+    font-size: 11px;
+  }
+  
+  .stat-subtitle {
+    font-size: 10px;
+  }
+  
+  .network-stat {
+    margin-bottom: 2px;
+  }
+  
+  .network-label,
+  .network-value {
+    font-size: 11px;
+  }
+}

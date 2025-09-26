@@ -1,0 +1,174 @@
+.app-shortcuts-widget {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.app-shortcuts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.app-shortcut {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  min-height: 100px;
+}
+
+/* Dark theme app shortcuts */
+[data-theme="dark"] .app-shortcut {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Light theme app shortcuts */
+[data-theme="light"] .app-shortcut {
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.app-shortcut:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Dark theme hover */
+[data-theme="dark"] .app-shortcut:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Light theme hover */
+[data-theme="light"] .app-shortcut:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.app-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 8px;
+}
+
+.app-icon {
+  width: 32px;
+  height: 32px;
+}
+
+/* Dark theme icons */
+[data-theme="dark"] .app-icon {
+  color: #64b5f6;
+}
+
+/* Light theme icons */
+[data-theme="light"] .app-icon {
+  color: #2563eb;
+}
+
+.app-name {
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 4px;
+  line-height: 1.2;
+}
+
+/* Dark theme app names */
+[data-theme="dark"] .app-name {
+  color: white;
+}
+
+/* Light theme app names */
+[data-theme="light"] .app-name {
+  color: #1a1a1a;
+}
+
+.app-launch-icon {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 20px;
+  height: 20px;
+  background: rgba(100, 181, 246, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.app-shortcut:hover .app-launch-icon {
+  opacity: 1;
+}
+
+.app-launch-icon svg {
+  width: 12px;
+  height: 12px;
+  color: #64b5f6;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .app-shortcuts-widget {
+    grid-column: span 1;
+  }
+  
+  .app-shortcuts-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 8px;
+  }
+  
+  .app-shortcut {
+    padding: 12px 8px;
+    min-height: 80px;
+  }
+  
+  .app-icon-container {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .app-icon {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .app-name {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 768px) {
+  .app-shortcuts-grid {
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 6px;
+  }
+  
+  .app-shortcut {
+    padding: 8px 6px;
+    min-height: 70px;
+  }
+  
+  .app-icon-container {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .app-icon {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .app-name {
+    font-size: 10px;
+  }
+}

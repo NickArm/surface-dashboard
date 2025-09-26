@@ -1,0 +1,185 @@
+.hardware-monitor-widget {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+
+.hardware-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.hardware-item {
+  border-radius: 8px;
+  padding: 16px;
+}
+
+/* Dark theme hardware items */
+[data-theme="dark"] .hardware-item {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Light theme hardware items */
+[data-theme="light"] .hardware-item {
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.hardware-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.hardware-icon {
+  width: 20px;
+  height: 20px;
+  color: #64b5f6;
+}
+
+.hardware-label {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Dark theme labels */
+[data-theme="dark"] .hardware-label {
+  color: white;
+}
+
+/* Light theme labels */
+[data-theme="light"] .hardware-label {
+  color: #1a1a1a;
+}
+
+.hardware-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.hardware-value {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Dark theme values */
+[data-theme="dark"] .hardware-value {
+  color: white;
+}
+
+/* Light theme values */
+[data-theme="light"] .hardware-value {
+  color: #1a1a1a;
+}
+
+.hardware-subtitle {
+  font-size: 12px;
+  line-height: 1.3;
+}
+
+/* Dark theme subtitles */
+[data-theme="dark"] .hardware-subtitle {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Light theme subtitles */
+[data-theme="light"] .hardware-subtitle {
+  color: rgba(26, 26, 26, 0.6);
+}
+
+.hardware-secondary {
+  font-size: 11px;
+  line-height: 1.2;
+  margin-top: 4px;
+}
+
+/* Dark theme secondary text */
+[data-theme="dark"] .hardware-secondary {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* Light theme secondary text */
+[data-theme="light"] .hardware-secondary {
+  color: rgba(26, 26, 26, 0.4);
+}
+
+.hardware-bar {
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: 4px;
+}
+
+/* Dark theme progress bar background */
+[data-theme="dark"] .hardware-bar {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Light theme progress bar background */
+[data-theme="light"] .hardware-bar {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.hardware-bar-fill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .hardware-monitor-widget {
+    grid-column: span 1;
+  }
+  
+  .hardware-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+  }
+  
+  .hardware-item {
+    padding: 12px;
+  }
+  
+  .hardware-value {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hardware-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  
+  .hardware-item {
+    padding: 10px;
+  }
+  
+  .hardware-header {
+    margin-bottom: 8px;
+  }
+  
+  .hardware-icon {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .hardware-label {
+    font-size: 12px;
+  }
+  
+  .hardware-value {
+    font-size: 13px;
+  }
+  
+  .hardware-subtitle {
+    font-size: 11px;
+  }
+}

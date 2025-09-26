@@ -1,0 +1,183 @@
+/* Responsive Dashboard Styles - Auto-flowing layout */
+.responsive-dashboard {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Dark theme background */
+[data-theme="dark"] .responsive-dashboard {
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%);
+}
+
+/* Light theme background */
+[data-theme="light"] .responsive-dashboard {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+.dashboard-content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.dashboard-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 100%;
+}
+
+.dashboard-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+.widget-container {
+  flex: 0 0 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Bootstrap-style column classes */
+.col-1 { flex: 0 0 8.333333%; max-width: 8.333333%; }
+.col-2 { flex: 0 0 16.666667%; max-width: 16.666667%; }
+.col-3 { flex: 0 0 25%; max-width: 25%; }
+.col-4 { flex: 0 0 33.333333%; max-width: 33.333333%; }
+.col-5 { flex: 0 0 41.666667%; max-width: 41.666667%; }
+.col-6 { flex: 0 0 50%; max-width: 50%; }
+.col-7 { flex: 0 0 58.333333%; max-width: 58.333333%; }
+.col-8 { flex: 0 0 66.666667%; max-width: 66.666667%; }
+.col-9 { flex: 0 0 75%; max-width: 75%; }
+.col-10 { flex: 0 0 83.333333%; max-width: 83.333333%; }
+.col-11 { flex: 0 0 91.666667%; max-width: 91.666667%; }
+.col-12 { flex: 0 0 100%; max-width: 100%; }
+
+/* Widget styling */
+.widget-container .dashboard-card {
+  height: 100%;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Responsive behavior */
+@media (max-width: 1200px) {
+  .dashboard-row {
+    flex-direction: column;
+  }
+  
+  .widget-container {
+    flex: 1;
+    max-width: 100%;
+  }
+  
+  /* Override column classes on smaller screens */
+  .col-1, .col-2, .col-3, .col-4, .col-5, .col-6,
+  .col-7, .col-8, .col-9, .col-10, .col-11, .col-12 {
+    flex: 1;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-content {
+    padding: 15px;
+  }
+  
+  .dashboard-grid {
+    gap: 15px;
+  }
+  
+  .dashboard-row {
+    gap: 15px;
+  }
+  
+  .widget-container .dashboard-card {
+    min-height: 250px;
+  }
+}
+
+/* Surface-specific optimizations */
+@media (max-width: 1366px) and (min-width: 1201px) {
+  /* Surface Pro 7/8 landscape */
+  .dashboard-row {
+    flex-wrap: wrap;
+  }
+  
+  .widget-container {
+    flex: 0 0 auto;
+  }
+  
+  /* Adjust widget sizes for Surface */
+  .col-6 {
+    flex: 0 0 48%;
+    max-width: 48%;
+  }
+  
+  .col-4 {
+    flex: 0 0 31%;
+    max-width: 31%;
+  }
+  
+  .col-3 {
+    flex: 0 0 23%;
+    max-width: 23%;
+  }
+  
+  .col-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .widget-container .dashboard-card {
+    border-width: 0.5px;
+  }
+}
+
+/* Dark theme adjustments */
+[data-theme="dark"] .responsive-dashboard {
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%);
+}
+
+/* Widget hover effects */
+.widget-container .dashboard-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Light theme hover effects */
+[data-theme="light"] .widget-container .dashboard-card:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Smooth transitions */
+.widget-container {
+  transition: all 0.3s ease;
+}
+
+/* Debug mode (can be enabled via CSS class) */
+.responsive-dashboard.debug .widget-container {
+  border: 2px dashed rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.responsive-dashboard.debug .widget-container::before {
+  content: attr(class);
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.7);
+  background: rgba(0, 0, 0, 0.5);
+  padding: 2px 4px;
+  border-radius: 3px;
+}
