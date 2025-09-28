@@ -6,7 +6,8 @@ import {
   AppShortcutsWidget, 
   SystemStatsWidget, 
   HardwareMonitorWidget,
-  SpotifyWidget
+  SpotifyWidget,
+  ClockWidget
 } from '../widgets';
 import './ResponsiveDashboard.css';
 
@@ -95,6 +96,7 @@ const ResponsiveDashboard = ({ systemInfo, weather, appShortcuts, onRefreshWeath
         {widgetId === 'appShortcuts' && <WidgetComponent appShortcuts={appShortcuts} />}
         {widgetId === 'weather' && <WidgetComponent weather={weather} onRefresh={() => onRefreshWeather(true)} />}
         {widgetId === 'spotify' && <WidgetComponent />}
+        {widgetId === 'clock' && <WidgetComponent />}
       </div>
     );
   };
@@ -113,7 +115,8 @@ const ResponsiveDashboard = ({ systemInfo, weather, appShortcuts, onRefreshWeath
                   systemStats: SystemStatsWidget,
                   appShortcuts: AppShortcutsWidget,
                   weather: WeatherWidget,
-                  spotify: SpotifyWidget
+                  spotify: SpotifyWidget,
+                  clock: ClockWidget
                 }[widget.id];
                 
                 return renderWidget(widget.id, WidgetComponent);

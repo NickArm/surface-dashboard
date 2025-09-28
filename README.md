@@ -35,6 +35,13 @@ A modern, customizable desktop dashboard built with Electron and React. Monitor 
 - **One-Click Launch**: Instant application launching
 - **Compact Grid**: Efficient 6-app layout for landscape screens
 
+### 🕐 Clock Widget
+- **Digital Clock**: Real-time 24-hour format display (HH:MM:SS)
+- **Date Display**: Full date with weekday, month, day, and year
+- **Smart Greeting**: Contextual "Good Morning/Afternoon/Evening" based on time
+- **Theme Aware**: Automatic color adaptation for Light/Dark modes
+- **Compact Design**: Optimized 3-column layout for Surface landscape
+
 ### 🎨 Modern Design
 - **Dark/Light Themes**: Complete theme support with proper font colors
 - **Surface Landscape**: Optimized layout for Surface landscape orientation

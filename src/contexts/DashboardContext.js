@@ -15,14 +15,16 @@ const DEFAULT_DASHBOARDS = {
       systemStats: true,
       appShortcuts: true,
       weather: false,
-      spotify: false
+      spotify: false,
+      clock: true
     },
     widgetSizes: {
       hardwareMonitor: { cols: 3 }, // 3/12 = 25% width - compact single column
       systemStats: { cols: 3 },      // 3/12 = 25% width - compact single column
       appShortcuts: { cols: 6 },   // 6/12 = 50% width - 6 apps in row
       weather: { cols: 3 },        // 3/12 = 25% width - compact weather
-      spotify: getOptimalWidgetSize('spotify')
+      spotify: getOptimalWidgetSize('spotify'),
+      clock: { cols: 3 }           // 3/12 = 25% width - compact clock
     }
   },
   gaming: {
@@ -35,14 +37,16 @@ const DEFAULT_DASHBOARDS = {
       systemStats: true,
       appShortcuts: true,
       weather: false,
-      spotify: false
+      spotify: false,
+      clock: true
     },
     widgetSizes: {
       hardwareMonitor: { cols: 3 }, // 3/12 = 25% width - compact single column
       systemStats: { cols: 3 },      // 3/12 = 25% width - compact single column
       appShortcuts: { cols: 6 },   // 6/12 = 50% width - 6 apps in row
       weather: { cols: 3 },        // 3/12 = 25% width - compact weather
-      spotify: getOptimalWidgetSize('spotify')
+      spotify: getOptimalWidgetSize('spotify'),
+      clock: { cols: 3 }           // 3/12 = 25% width - compact clock
     }
   },
   personal: {
@@ -55,14 +59,16 @@ const DEFAULT_DASHBOARDS = {
       systemStats: true,
       appShortcuts: true,
       weather: true,
-      spotify: false
+      spotify: false,
+      clock: true
     },
     widgetSizes: {
       hardwareMonitor: { cols: 3 }, // 3/12 = 25% width - compact single column
       systemStats: { cols: 3 },      // 3/12 = 25% width - compact single column
       appShortcuts: { cols: 6 },   // 6/12 = 50% width - 6 apps in row
       weather: { cols: 3 },        // 3/12 = 25% width - compact weather
-      spotify: getOptimalWidgetSize('spotify')
+      spotify: getOptimalWidgetSize('spotify'),
+      clock: { cols: 3 }           // 3/12 = 25% width - compact clock
     }
   }
 };

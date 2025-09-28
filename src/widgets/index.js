@@ -12,3 +12,6 @@ export { default as HardwareMonitorWidget } from './hardware/HardwareMonitorWidg
 
 // Spotify Widget
 export { default as SpotifyWidget } from './spotify/SpotifyWidget';
+
+// Clock Widget
+export { default as ClockWidget } from './clock/ClockWidget';

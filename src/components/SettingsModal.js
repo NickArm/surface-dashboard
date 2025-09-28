@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, Monitor, BarChart3, Grid, Cloud, Music, RotateCcw } from 'lucide-react';
+import { X, Monitor, BarChart3, Grid, Cloud, Music, RotateCcw, Clock } from 'lucide-react';
 import { useDashboard } from '../contexts/DashboardContext';
 import './SettingsModal.css';
 
@@ -53,6 +53,13 @@ const SettingsModal = ({ isOpen, onClose }) => {
       description: 'Control your Spotify Premium playback',
       icon: Music,
       color: '#1DB954'
+    },
+    {
+      key: 'clock',
+      name: 'Clock Widget',
+      description: 'Digital and analog clock with date',
+      icon: Clock,
+      color: '#64B5F6'
     }
   ];
 

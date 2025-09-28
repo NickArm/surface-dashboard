@@ -5,6 +5,55 @@ All notable changes to the Surface Dashboard project will be documented in this 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] - 2024-09-28
+
+### 🕐 Clock Widget Addition
+
+#### Added
+- **Clock Widget**: New digital clock widget with date and greeting
+- **Real-time Display**: Shows current time, date, and contextual greeting
+- **Light Mode Support**: Complete Light/Dark theme compatibility
+- **Compact Design**: Optimized for Surface landscape layout
+
+#### Features
+- **Digital Time**: 24-hour format display (HH:MM:SS)
+- **Date Display**: Full date with weekday, month, day, and year
+- **Smart Greeting**: Contextual "Good Morning/Afternoon/Evening" based on time
+- **Theme Aware**: Automatic color adaptation for Light/Dark modes
+- **Inline Styling**: Self-contained styling without external CSS dependencies
+
+#### Technical Implementation
+- **Static Display**: Simple, reliable time display without complex state management
+- **Theme Detection**: Automatic theme detection using `data-theme` attribute
+- **Responsive Design**: Compact 3-column layout (25% width)
+- **Error-Free**: Simplified implementation to prevent crashes
+
+#### Design
+- **Compact Size**: 150px minimum height for efficient space usage
+- **Typography**: Courier New monospace font for time display
+- **Color Scheme**: Blue accent (#64b5f6 dark, #2563eb light) for time
+- **Consistent Styling**: Matches existing widget design patterns
+
+#### Files Added
+- `src/widgets/clock/ClockWidget.js` - Main clock component
+- Updated `src/widgets/index.js` - Clock widget export
+- Updated `src/contexts/DashboardContext.js` - Clock widget integration
+- Updated `src/components/ResponsiveDashboard.js` - Clock widget rendering
+- Updated `src/components/SettingsModal.js` - Clock widget settings
+
+#### Integration
+- **Dashboard Profiles**: Clock widget enabled in all dashboard profiles (Work, Gaming, Personal)
+- **Settings Modal**: Clock widget toggle in settings with Clock icon
+- **Grid Layout**: Seamlessly integrated into existing responsive grid system
+- **Theme System**: Full compatibility with existing Dark/Light theme system
+
+### 🎯 Widget Optimization
+
+#### Improved
+- **Clock Widget**: Made more compact with reduced font sizes and spacing
+- **Light Mode Colors**: Enhanced color contrast and readability for Light mode
+- **Space Efficiency**: Optimized widget dimensions for better Surface landscape fit
+
 ## [1.1.0] - 2024-09-28
 
 ### 🎨 Surface Landscape Optimization
