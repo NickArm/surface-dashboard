@@ -1,12 +1,56 @@
 // Weather IPC Handlers - Moved from electron.js
 const { ipcMain } = require('electron');
 const axios = require('axios');
+const fs = require('fs');
+const path = require('path');
+
+// Function to load weather configuration
+const loadWeatherConfig = () => {
+  try {
+    const configPath = path.join(__dirname, '../../../weather.config');
+    if (fs.existsSync(configPath)) {
+      const configContent = fs.readFileSync(configPath, 'utf8');
+      const config = {};
+      
+      configContent.split('\n').forEach(line => {
+        const trimmedLine = line.trim();
+        if (trimmedLine && !trimmedLine.startsWith('#')) {
+          const [key, ...valueParts] = trimmedLine.split('=');
+          if (key && valueParts.length > 0) {
+            config[key.trim()] = valueParts.join('=').trim();
+          }
+        }
+      });
+      
+      return config;
+    }
+  } catch (error) {
+    console.error('Error loading weather config:', error);
+  }
+  
+  // Return default config if file doesn't exist or error
+  return {
+    WEATHER_API_KEY: 'ac70fc3d9270e236f9b118eec7c11688',
+    WEATHER_CITY: 'Athens',
+    WEATHER_UNITS: 'metric',
+    WEATHER_LANGUAGE: 'el'
+  };
+};
 
 // Weather Widget IPC Handlers
 const setupWeatherIPC = () => {
   // Handle weather data
   ipcMain.handle('get-weather', async (event, city) => {
-    const API_KEY = 'ac70fc3d9270e236f9b118eec7c11688'; // Hardcoded as requested
+    const config = loadWeatherConfig();
+    const API_KEY = config.WEATHER_API_KEY;
+    const DEFAULT_CITY = config.WEATHER_CITY;
+    const UNITS = config.WEATHER_UNITS;
+    const LANGUAGE = config.WEATHER_LANGUAGE;
+    
+    // Use provided city or default from config
+    const targetCity = city || DEFAULT_CITY;
+    
+    console.log(`Weather config loaded: City=${DEFAULT_CITY}, Units=${UNITS}, Language=${LANGUAGE}`);
     
     // Fallback weather data
     const fallbackWeather = {
@@ -21,7 +65,7 @@ const setupWeatherIPC = () => {
       sys: { type: 1, id: 5782, country: 'GR', sunrise: 1635735600, sunset: 1635775200 },
       timezone: 7200,
       id: 264371,
-      name: city || 'Athens',
+      name: targetCity,
       cod: 200,
       hourly: [
         { dt: Date.now() / 1000 + 3600, temp: 26, weather: [{ main: 'Clear', description: 'clear sky' }] },
@@ -38,9 +82,9 @@ const setupWeatherIPC = () => {
 
     try {
       // Get coordinates for the city using Geocoding API
-      console.log(`Getting coordinates for ${city}...`);
+      console.log(`Getting coordinates for ${targetCity}...`);
       const geoResponse = await axios.get(
-        `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${API_KEY}`,
+        `https://api.openweathermap.org/geo/1.0/direct?q=${targetCity}&limit=1&appid=${API_KEY}`,
         { timeout: 10000 }
       );
 
@@ -50,12 +94,12 @@ const setupWeatherIPC = () => {
       }
 
       const { lat, lon } = geoResponse.data[0];
-      console.log(`Coordinates for ${city}: ${lat}, ${lon}`);
+      console.log(`Coordinates for ${targetCity}: ${lat}, ${lon}`);
 
       // Get weather data using Basic Weather API (v2.5)
-      console.log(`Fetching weather data for ${city} using Basic Weather API...`);
+      console.log(`Fetching weather data for ${targetCity} using Basic Weather API...`);
       const weatherResponse = await axios.get(
-        `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric&lang=el`,
+        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=${UNITS}&lang=${LANGUAGE}`,
         { timeout: 10000 }
       );
       
@@ -94,7 +138,15 @@ const setupWeatherIPC = () => {
       
     } catch (error) {
       console.error('Error fetching weather:', error.message);
-      console.log('Using fallback weather data');
+      if (error.code === 'ENOTFOUND' || error.code === 'ECONNREFUSED') {
+        console.log('Network error - using fallback weather data');
+      } else if (error.response?.status === 401) {
+        console.log('API key invalid - using fallback weather data');
+      } else if (error.response?.status === 404) {
+        console.log('City not found - using fallback weather data');
+      } else {
+        console.log('Unknown error - using fallback weather data');
+      }
       return fallbackWeather;
     }
   });

@@ -29,15 +29,15 @@ function AppContent() {
     }
   }, [systemInfo]);
 
-  const loadWeather = useCallback(async () => {
+  const loadWeather = useCallback(async (forceRefresh = false) => {
     try {
       if (!window.electronAPI) {
         throw new Error('Electron API not available');
       }
       
-      // Only fetch if we don't have weather data or it's older than 10 minutes
-      if (!weather || (Date.now() - weather.lastUpdated) > 600000) {
-        const weatherData = await window.electronAPI.getWeather('Athens');
+      // Only fetch if we don't have weather data, it's older than 10 minutes, or force refresh
+      if (!weather || (Date.now() - weather.lastUpdated) > 600000 || forceRefresh) {
+        const weatherData = await window.electronAPI.getWeather(); // No city parameter - will use default from config
         setWeather({ ...weatherData, lastUpdated: Date.now() });
       }
     } catch (error) {
@@ -148,6 +148,7 @@ function AppContent() {
           systemInfo={systemInfo}
           weather={weather}
           appShortcuts={appShortcuts}
+          onRefreshWeather={loadWeather}
         />
       </ErrorBoundary>
     </div>

@@ -5,6 +5,57 @@ All notable changes to the Surface Dashboard project will be documented in this 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2024-09-28
+
+### 🎨 Surface Landscape Optimization
+
+#### Added
+- **Compact Widget Design**: Redesigned all widgets for Surface landscape mode
+- **Weather Configuration**: External weather settings via `weather.config` file
+- **Light Mode Fonts**: Complete Light mode font color support for Weather widget
+- **Modern UI/UX**: Contemporary, space-efficient design patterns
+
+#### Changed
+- **Hardware Monitor**: Converted to single-column layout with compact spacing
+- **System Stats**: Streamlined to single-column with essential information only
+- **App Shortcuts**: Reduced to 6 apps with smaller, more efficient design
+- **Weather Widget**: Compact design with smaller fonts and tighter spacing
+- **Widget Sizes**: Optimized grid layout (3+3+6+3 columns) for landscape screens
+
+#### Technical Improvements
+- **Widget Layout**: All widgets now fit perfectly in Surface landscape orientation
+- **Font Sizes**: Reduced font sizes across all widgets for better space utilization
+- **Spacing**: Tighter padding and margins for more efficient use of screen space
+- **Grid System**: Updated widget sizes for optimal landscape layout
+- **Configuration**: Weather widget settings externalized to config file
+
+#### Fixed
+- **Weather Widget Crashes**: Resolved async service dependency issues
+- **Light Mode Fonts**: Fixed all font colors for Light mode in Weather widget
+- **Widget Sizing**: Corrected grid column allocations for landscape mode
+- **ESLint Warnings**: Removed unused imports and variables
+
+#### Files Modified
+- `src/widgets/hardware/HardwareMonitorWidget.js` - Single column layout
+- `src/widgets/hardware/HardwareMonitorWidget.css` - Compact styling
+- `src/widgets/system/SystemStatsWidget.js` - Streamlined layout
+- `src/widgets/system/SystemStatsWidget.css` - Compact styling
+- `src/widgets/apps/AppShortcutsWidget.js` - 6 apps limit
+- `src/widgets/apps/AppShortcutsWidget.css` - Smaller design
+- `src/widgets/weather/WeatherWidget.js` - Simplified component
+- `src/widgets/weather/WeatherWidget.css` - Compact design + Light mode fonts
+- `src/widgets/weather/weatherIPC.js` - External config support
+- `src/contexts/DashboardContext.js` - Updated widget sizes
+- `weather.config` - New configuration file
+- `WEATHER_CONFIG_README.md` - Configuration instructions
+
+### 🌟 Design Philosophy
+- **Surface Optimized**: Perfect fit for Surface landscape orientation
+- **Modern Aesthetics**: Clean, contemporary design language
+- **Space Efficient**: Maximum information density without clutter
+- **Consistent Spacing**: Unified padding and margins across all widgets
+- **Theme Coherent**: Seamless Dark/Light mode transitions
+
 ## [1.0.0] - 2024-12-19
 
 ### 🎉 Initial Release

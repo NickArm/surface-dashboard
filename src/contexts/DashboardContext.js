@@ -18,10 +18,10 @@ const DEFAULT_DASHBOARDS = {
       spotify: false
     },
     widgetSizes: {
-      hardwareMonitor: { cols: 4 }, // 4/12 = 33.33% width (μισό από 8/12)
-      systemStats: { cols: 3 },      // 3/12 = 25% width
-      appShortcuts: { cols: 12 },   // 100% width for work dashboard
-      weather: getOptimalWidgetSize('weather'),
+      hardwareMonitor: { cols: 3 }, // 3/12 = 25% width - compact single column
+      systemStats: { cols: 3 },      // 3/12 = 25% width - compact single column
+      appShortcuts: { cols: 6 },   // 6/12 = 50% width - 6 apps in row
+      weather: { cols: 3 },        // 3/12 = 25% width - compact weather
       spotify: getOptimalWidgetSize('spotify')
     }
   },
@@ -38,10 +38,10 @@ const DEFAULT_DASHBOARDS = {
       spotify: false
     },
     widgetSizes: {
-      hardwareMonitor: { cols: 4 }, // 4/12 = 33.33% width
-      systemStats: { cols: 3 },      // 3/12 = 25% width
-      appShortcuts: getOptimalWidgetSize('appShortcuts'),
-      weather: getOptimalWidgetSize('weather'),
+      hardwareMonitor: { cols: 3 }, // 3/12 = 25% width - compact single column
+      systemStats: { cols: 3 },      // 3/12 = 25% width - compact single column
+      appShortcuts: { cols: 6 },   // 6/12 = 50% width - 6 apps in row
+      weather: { cols: 3 },        // 3/12 = 25% width - compact weather
       spotify: getOptimalWidgetSize('spotify')
     }
   },
@@ -58,10 +58,10 @@ const DEFAULT_DASHBOARDS = {
       spotify: false
     },
     widgetSizes: {
-      hardwareMonitor: { cols: 4 }, // 4/12 = 33.33% width
-      systemStats: { cols: 3 },      // 3/12 = 25% width
-      appShortcuts: getOptimalWidgetSize('appShortcuts'),
-      weather: getOptimalWidgetSize('weather'),
+      hardwareMonitor: { cols: 3 }, // 3/12 = 25% width - compact single column
+      systemStats: { cols: 3 },      // 3/12 = 25% width - compact single column
+      appShortcuts: { cols: 6 },   // 6/12 = 50% width - 6 apps in row
+      weather: { cols: 3 },        // 3/12 = 25% width - compact weather
       spotify: getOptimalWidgetSize('spotify')
     }
   }
@@ -195,8 +195,8 @@ export const DashboardProvider = ({ children }) => {
       const defaultSizes = DEFAULT_DASHBOARDS[currentDashboard]?.widgetSizes || {
         hardwareMonitor: { cols: 4 }, // 4/12 = 33.33% width
         systemStats: { cols: 3 },      // 3/12 = 25% width
-        appShortcuts: getOptimalWidgetSize('appShortcuts'),
-        weather: getOptimalWidgetSize('weather'),
+        appShortcuts: { cols: 6 },   // 6/12 = 50% width - 6 apps in row
+        weather: { cols: 3 },        // 3/12 = 25% width - compact weather
         spotify: getOptimalWidgetSize('spotify')
       };
       setDashboards(prev => ({
@@ -213,10 +213,10 @@ export const DashboardProvider = ({ children }) => {
 
   const resetWidgetSizes = () => {
     const defaultSizes = DEFAULT_DASHBOARDS[currentDashboard]?.widgetSizes || {
-      hardwareMonitor: { cols: 4 }, // 4/12 = 33.33% width
-      systemStats: { cols: 3 },      // 3/12 = 25% width
-      appShortcuts: getOptimalWidgetSize('appShortcuts'),
-      weather: getOptimalWidgetSize('weather'),
+      hardwareMonitor: { cols: 3 }, // 3/12 = 25% width - compact single column
+      systemStats: { cols: 3 },      // 3/12 = 25% width - compact single column
+      appShortcuts: { cols: 6 },   // 6/12 = 50% width - 6 apps in row
+      weather: { cols: 3 },        // 3/12 = 25% width - compact weather
       spotify: getOptimalWidgetSize('spotify')
     };
     setDashboards(prev => ({

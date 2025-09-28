@@ -1,25 +1,26 @@
 .app-shortcuts-widget {
   grid-column: span 2;
-  grid-row: span 2;
+  grid-row: span 1;
+  min-height: 200px;
 }
 
 .app-shortcuts-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 12px;
-  margin-top: 16px;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+  margin-top: 12px;
 }
 
 .app-shortcut {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 16px 12px;
-  border-radius: 12px;
+  padding: 8px 4px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   position: relative;
-  min-height: 100px;
+  min-height: 60px;
 }
 
 /* Dark theme app shortcuts */
@@ -53,14 +54,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
-  margin-bottom: 8px;
+  width: 32px;
+  height: 32px;
+  margin-bottom: 4px;
 }
 
 .app-icon {
-  width: 32px;
-  height: 32px;
+  width: 20px;
+  height: 20px;
 }
 
 /* Dark theme icons */
@@ -74,10 +75,10 @@
 }
 
 .app-name {
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 500;
   text-align: center;
-  margin-bottom: 4px;
+  margin-bottom: 0;
   line-height: 1.2;
 }
 

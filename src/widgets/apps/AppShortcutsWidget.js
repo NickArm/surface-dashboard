@@ -1,5 +1,5 @@
 import React from 'react';
-import { Play, Monitor, Calculator, FileText, Folder, Settings, Terminal, Palette, Clipboard } from 'lucide-react';
+import { Monitor, Calculator, FileText, Folder, Settings, Terminal, Palette, Clipboard } from 'lucide-react';
 import './AppShortcutsWidget.css';
 
 const AppShortcutsWidget = ({ appShortcuts }) => {
@@ -45,7 +45,7 @@ const AppShortcutsWidget = ({ appShortcuts }) => {
       <h2>App Shortcuts</h2>
       
       <div className="app-shortcuts-grid">
-        {appShortcuts.map((app, index) => (
+        {appShortcuts.slice(0, 6).map((app, index) => (
           <div 
             key={index} 
             className="app-shortcut"
@@ -56,9 +56,6 @@ const AppShortcutsWidget = ({ appShortcuts }) => {
               {getAppIcon(app.name)}
             </div>
             <div className="app-name">{app.name || 'Unknown App'}</div>
-            <div className="app-launch-icon">
-              <Play size={12} />
-            </div>
           </div>
         ))}
       </div>

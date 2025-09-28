@@ -1,18 +1,22 @@
 .hardware-monitor-widget {
-  grid-column: span 2;
+  grid-column: span 1;
   grid-row: span 1;
+  min-height: 200px;
 }
 
 .hardware-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 16px;
-  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
 }
 
 .hardware-item {
-  border-radius: 8px;
-  padding: 16px;
+  border-radius: 6px;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 /* Dark theme hardware items */
@@ -34,15 +38,47 @@
   margin-bottom: 12px;
 }
 
+.hardware-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hardware-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
 .hardware-icon {
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   color: #64b5f6;
 }
 
 .hardware-label {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 500;
+}
+
+.hardware-value {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.hardware-bar {
+  width: 60px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.hardware-bar-fill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.3s ease;
 }
 
 /* Dark theme labels */

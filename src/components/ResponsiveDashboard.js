@@ -10,7 +10,7 @@ import {
 } from '../widgets';
 import './ResponsiveDashboard.css';
 
-const ResponsiveDashboard = ({ systemInfo, weather, appShortcuts }) => {
+const ResponsiveDashboard = ({ systemInfo, weather, appShortcuts, onRefreshWeather }) => {
   const { widgetSettings, currentDashboard, dashboards } = useDashboard();
 
   // Get widget sizes from current dashboard configuration
@@ -93,7 +93,7 @@ const ResponsiveDashboard = ({ systemInfo, weather, appShortcuts }) => {
         {widgetId === 'hardwareMonitor' && <WidgetComponent systemInfo={systemInfo} />}
         {widgetId === 'systemStats' && <WidgetComponent />}
         {widgetId === 'appShortcuts' && <WidgetComponent appShortcuts={appShortcuts} />}
-        {widgetId === 'weather' && <WidgetComponent weather={weather} />}
+        {widgetId === 'weather' && <WidgetComponent weather={weather} onRefresh={() => onRefreshWeather(true)} />}
         {widgetId === 'spotify' && <WidgetComponent />}
       </div>
     );

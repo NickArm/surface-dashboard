@@ -33,16 +33,13 @@ const HardwareMonitorWidget = ({ systemInfo }) => {
       <div className="hardware-grid">
         {/* CPU Usage */}
         <div className="hardware-item">
-          <div className="hardware-header">
+          <div className="hardware-left">
             <Cpu className="hardware-icon" />
             <span className="hardware-label">CPU</span>
           </div>
-          <div className="hardware-content">
+          <div className="hardware-right">
             <div className="hardware-value">
               {cpuUsage !== null ? `${cpuUsage.toFixed(1)}%` : 'Loading...'}
-            </div>
-            <div className="hardware-subtitle">
-              {systemInfo && systemInfo.cpu ? `${systemInfo.cpu.manufacturer} ${systemInfo.cpu.brand}` : 'Loading...'}
             </div>
             {cpuUsage !== null && (
               <div className="hardware-bar">
@@ -60,16 +57,13 @@ const HardwareMonitorWidget = ({ systemInfo }) => {
 
         {/* Memory Usage */}
         <div className="hardware-item">
-          <div className="hardware-header">
+          <div className="hardware-left">
             <MemoryStick className="hardware-icon" />
             <span className="hardware-label">Memory</span>
           </div>
-          <div className="hardware-content">
+          <div className="hardware-right">
             <div className="hardware-value">
-              {systemInfo && systemInfo.memory ? `${hardwareService.formatBytes(systemInfo.memory.used)} / ${hardwareService.formatBytes(systemInfo.memory.total)}` : 'Loading...'}
-            </div>
-            <div className="hardware-subtitle">
-              {systemInfo && systemInfo.memory ? `${((systemInfo.memory.used / systemInfo.memory.total) * 100).toFixed(1)}% Used` : 'Loading...'}
+              {systemInfo && systemInfo.memory ? `${((systemInfo.memory.used / systemInfo.memory.total) * 100).toFixed(1)}%` : 'Loading...'}
             </div>
             {systemInfo && systemInfo.memory && (
               <div className="hardware-bar">
@@ -87,39 +81,27 @@ const HardwareMonitorWidget = ({ systemInfo }) => {
 
         {/* Graphics */}
         <div className="hardware-item">
-          <div className="hardware-header">
+          <div className="hardware-left">
             <Activity className="hardware-icon" />
             <span className="hardware-label">Graphics</span>
           </div>
-          <div className="hardware-content">
+          <div className="hardware-right">
             <div className="hardware-value">
               {systemInfo && systemInfo.graphics && systemInfo.graphics.length > 0 ? 
-                systemInfo.graphics[0].model : 'Loading...'}
+                systemInfo.graphics[0].model.split(' ')[0] : 'Loading...'}
             </div>
-            <div className="hardware-subtitle">
-              {systemInfo && systemInfo.graphics && systemInfo.graphics.length > 0 ? 
-                `${systemInfo.graphics[0].vendor} • ${Math.round(systemInfo.graphics[0].vram)}MB VRAM` : 'Loading...'}
-            </div>
-            {systemInfo && systemInfo.graphics && systemInfo.graphics.length > 1 && (
-              <div className="hardware-secondary">
-                Secondary: {systemInfo.graphics[1].model}
-              </div>
-            )}
           </div>
         </div>
 
         {/* System Info */}
         <div className="hardware-item">
-          <div className="hardware-header">
+          <div className="hardware-left">
             <Monitor className="hardware-icon" />
             <span className="hardware-label">System</span>
           </div>
-          <div className="hardware-content">
+          <div className="hardware-right">
             <div className="hardware-value">
               {systemInfo && systemInfo.os ? `${systemInfo.os.platform} ${systemInfo.os.release}` : 'Loading...'}
-            </div>
-            <div className="hardware-subtitle">
-              {systemInfo && systemInfo.os ? `${systemInfo.os.arch} • ${systemInfo.os.hostname}` : 'Loading...'}
             </div>
           </div>
         </div>

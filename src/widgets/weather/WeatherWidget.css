@@ -1,25 +1,73 @@
 .weather-widget {
   grid-column: span 1;
-  grid-row: span 2;
-  min-height: 300px;
+  grid-row: span 1;
+  min-height: 200px;
+}
+
+.weather-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 .weather-widget h2 {
-  margin-bottom: 20px;
+  margin: 0;
   color: white;
   font-size: 20px;
   font-weight: 600;
 }
 
+.refresh-button {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  color: white;
+  padding: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.refresh-button:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.refresh-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.refresh-icon {
+  transition: transform 0.3s ease;
+}
+
+.refresh-icon.spinning {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .weather-main {
   display: flex;
   align-items: center;
-  gap: 20px;
-  margin-bottom: 20px;
+  gap: 12px;
+  margin-bottom: 12px;
 }
 
 .weather-icon-container {
   flex-shrink: 0;
+  font-size: 24px;
 }
 
 .weather-icon {
@@ -59,40 +107,40 @@
 }
 
 .weather-temp {
-  font-size: 36px;
+  font-size: 24px;
   font-weight: 700;
   color: white;
   line-height: 1;
 }
 
 .weather-description {
-  font-size: 16px;
+  font-size: 12px;
   color: rgba(255, 255, 255, 0.8);
   text-transform: capitalize;
-  margin: 4px 0;
+  margin: 2px 0;
 }
 
 .weather-location {
-  font-size: 14px;
+  font-size: 10px;
   color: rgba(255, 255, 255, 0.6);
 }
 
 .weather-details {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 12px;
-  margin-bottom: 16px;
+  gap: 6px;
+  margin-bottom: 8px;
 }
 
 .weather-detail {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
-  padding: 8px;
+  gap: 2px;
+  padding: 6px;
   background: rgba(255, 255, 255, 0.05);
-  border-radius: 8px;
-  font-size: 12px;
+  border-radius: 6px;
+  font-size: 10px;
   color: white;
 }
 
@@ -105,17 +153,17 @@
 .weather-feels-like {
   text-align: center;
   color: rgba(255, 255, 255, 0.7);
-  font-size: 14px;
-  margin-bottom: 16px;
+  font-size: 11px;
+  margin-bottom: 8px;
 }
 
 .weather-min-max {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 16px;
-  padding: 12px;
+  margin-bottom: 8px;
+  padding: 8px;
   background: rgba(255, 255, 255, 0.05);
-  border-radius: 8px;
+  border-radius: 6px;
 }
 
 .temp-min,
@@ -127,12 +175,12 @@
 }
 
 .temp-label {
-  font-size: 12px;
+  font-size: 10px;
   color: rgba(255, 255, 255, 0.6);
 }
 
 .temp-value {
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 600;
   color: white;
 }
@@ -319,4 +367,83 @@
   .forecast-item.daily-item {
     padding: 10px;
   }
+}
+
+/* Light Mode Styles */
+[data-theme="light"] .weather-widget h2 {
+  color: #1a1a1a;
+}
+
+[data-theme="light"] .weather-temp {
+  color: #1a1a1a;
+}
+
+[data-theme="light"] .weather-description {
+  color: rgba(26, 26, 26, 0.8);
+}
+
+[data-theme="light"] .weather-location {
+  color: rgba(26, 26, 26, 0.6);
+}
+
+[data-theme="light"] .weather-detail {
+  background: rgba(0, 0, 0, 0.05);
+  color: #1a1a1a;
+}
+
+[data-theme="light"] .weather-feels-like {
+  color: rgba(26, 26, 26, 0.7);
+}
+
+[data-theme="light"] .temp-label {
+  color: rgba(26, 26, 26, 0.6);
+}
+
+[data-theme="light"] .temp-value {
+  color: #1a1a1a;
+}
+
+[data-theme="light"] .weather-sun {
+  color: rgba(26, 26, 26, 0.7);
+}
+
+[data-theme="light"] .loading {
+  color: rgba(26, 26, 26, 0.7);
+}
+
+[data-theme="light"] .forecast-toggle {
+  background: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  color: #1a1a1a;
+}
+
+[data-theme="light"] .forecast-toggle:hover {
+  background: rgba(0, 0, 0, 0.15);
+  border-color: rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="light"] .weather-forecast h4 {
+  color: #1a1a1a;
+}
+
+[data-theme="light"] .forecast-item {
+  background: rgba(0, 0, 0, 0.05);
+  color: #1a1a1a;
+}
+
+[data-theme="light"] .forecast-time,
+[data-theme="light"] .forecast-date {
+  color: rgba(26, 26, 26, 0.9);
+}
+
+[data-theme="light"] .forecast-temp {
+  color: #1a1a1a;
+}
+
+[data-theme="light"] .forecast-desc {
+  color: rgba(26, 26, 26, 0.7);
+}
+
+[data-theme="light"] .forecast-details {
+  color: rgba(26, 26, 26, 0.6);
 }

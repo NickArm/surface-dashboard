@@ -39,64 +39,47 @@ const SystemStatsWidget = () => {
       <div className="stats-grid">
         {/* Disk Usage */}
         <div className="stat-item">
-          <div className="stat-header">
+          <div className="stat-left">
             <HardDrive className="stat-icon" />
-            <span className="stat-label">Disk Usage</span>
+            <span className="stat-label">Disk</span>
           </div>
-          {diskUsage ? (
-            <div className="stat-content">
-              <div className="stat-value">{systemService.formatBytes(diskUsage.used)} / {systemService.formatBytes(diskUsage.total)}</div>
-              <div className="stat-percentage">{diskUsage.percentage.toFixed(1)}%</div>
+          <div className="stat-right">
+            <div className="stat-value">{diskUsage ? `${diskUsage.percentage.toFixed(1)}%` : 'Loading...'}</div>
+            {diskUsage && (
               <div className="stat-bar">
                 <div 
                   className="stat-bar-fill" 
                   style={{ width: `${diskUsage.percentage}%` }}
                 ></div>
               </div>
-            </div>
-          ) : (
-            <div className="stat-loading">Loading...</div>
-          )}
+            )}
+          </div>
         </div>
 
         {/* Network Stats */}
         <div className="stat-item">
-          <div className="stat-header">
+          <div className="stat-left">
             <Wifi className="stat-icon" />
             <span className="stat-label">Network</span>
           </div>
-          {networkStats ? (
-            <div className="stat-content">
-              <div className="stat-value">
-                <div className="network-stat">
-                  <span className="network-label">Down:</span>
-                  <span className="network-value">{systemService.formatBytes(networkStats.downloadSpeed)}/s</span>
-                </div>
-                <div className="network-stat">
-                  <span className="network-label">Up:</span>
-                  <span className="network-value">{systemService.formatBytes(networkStats.uploadSpeed)}/s</span>
-                </div>
-              </div>
+          <div className="stat-right">
+            <div className="stat-value">
+              {networkStats ? `${systemService.formatBytes(networkStats.downloadSpeed)}/s` : 'Loading...'}
             </div>
-          ) : (
-            <div className="stat-loading">Loading...</div>
-          )}
+          </div>
         </div>
 
         {/* System Uptime */}
         <div className="stat-item">
-          <div className="stat-header">
+          <div className="stat-left">
             <Clock className="stat-icon" />
             <span className="stat-label">Uptime</span>
           </div>
-          {uptime ? (
-            <div className="stat-content">
-              <div className="stat-value">{systemService.formatUptime(uptime.uptime)}</div>
-              <div className="stat-subtitle">Since {new Date(uptime.bootTime).toLocaleString()}</div>
+          <div className="stat-right">
+            <div className="stat-value">
+              {uptime ? systemService.formatUptime(uptime.uptime) : 'Loading...'}
             </div>
-          ) : (
-            <div className="stat-loading">Loading...</div>
-          )}
+          </div>
         </div>
       </div>
     </div>

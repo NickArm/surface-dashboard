@@ -1,6 +1,6 @@
 # 🖥️ Surface Dashboard
 
-A modern, customizable desktop dashboard built with Electron and React. Monitor your system, control applications, and stay informed with real-time widgets.
+A modern, customizable desktop dashboard built with Electron and React. Monitor your system, control applications, and stay informed with real-time widgets. **Optimized for Surface landscape mode!**
 
 ![Dashboard Preview](https://via.placeholder.com/800x400/1a1a2e/ffffff?text=Surface+Dashboard+Preview)
 
@@ -10,15 +10,18 @@ A modern, customizable desktop dashboard built with Electron and React. Monitor 
 - **Multiple Dashboard Profiles**: Switch between Work, Gaming, and Personal dashboards
 - **Customizable Widget Layout**: Each dashboard has its own widget configuration
 - **Persistent Settings**: All configurations saved automatically
+- **Surface Optimized**: Perfect layout for Surface landscape orientation
 
 ### 📊 System Monitoring
-- **Hardware Monitor**: Real-time CPU, Memory, and Graphics monitoring
-- **System Stats**: Disk usage, Network activity, and System uptime
+- **Hardware Monitor**: Real-time CPU, Memory, and Graphics monitoring (compact single-column layout)
+- **System Stats**: Disk usage, Network activity, and System uptime (streamlined design)
 - **Performance Metrics**: Visual progress bars and detailed statistics
 
 ### 🌤️ Weather Integration
-- **Current Weather**: Real-time weather conditions
+- **Current Weather**: Real-time weather conditions with compact design
 - **Detailed Information**: Temperature, humidity, wind speed, and more
+- **External Configuration**: Weather settings via `weather.config` file
+- **API Key Management**: Easy setup with your OpenWeatherMap API key
 - **Location-Based**: Automatic location detection and weather data
 
 ### 🎵 Media Control
@@ -27,13 +30,16 @@ A modern, customizable desktop dashboard built with Electron and React. Monitor 
 - **Album Artwork**: Beautiful track display with album covers
 
 ### 🚀 Application Management
-- **App Shortcuts**: Quick access to Windows applications
+- **App Shortcuts**: Quick access to 6 essential Windows applications
 - **Smart Icons**: Automatic icon detection for common apps
 - **One-Click Launch**: Instant application launching
+- **Compact Grid**: Efficient 6-app layout for landscape screens
 
 ### 🎨 Modern Design
-- **Dark/Light Themes**: Automatic theme switching with CSS variables
-- **Responsive Layout**: Bootstrap-style grid system (1/12 to 12/12 columns)
+- **Dark/Light Themes**: Complete theme support with proper font colors
+- **Surface Landscape**: Optimized layout for Surface landscape orientation
+- **Compact Widgets**: Space-efficient design with modern aesthetics
+- **Responsive Layout**: Bootstrap-style grid system (3+3+6+3 columns)
 - **Auto-flowing Widgets**: Smart layout that adapts to screen size
 - **Smooth Animations**: Modern UI with smooth transitions
 - **Touch-Friendly**: Optimized for touch interfaces

@@ -1,9 +1,8 @@
 {
   "name": "surface-dashboard",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A modern, customizable desktop dashboard built with Electron and React. Monitor your system, control applications, and stay informed with real-time widgets.",
   "main": "public/electron.js",
-  "homepage": "./",
   "private": true,
   "author": {
     "name": "Nick Armenis",
@@ -17,7 +16,7 @@
   "bugs": {
     "url": "https://github.com/NickArm/surface-dashboard/issues"
   },
-  "homepage": "https://github.com/NickArm/surface-dashboard#readme",
+  "homepage": "./",
   "keywords": [
     "dashboard",
     "electron",
